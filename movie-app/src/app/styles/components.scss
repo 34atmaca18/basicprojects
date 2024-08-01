@@ -1,0 +1,49 @@
+.filterContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    input {
+        width: 300px;
+        border: 1px solid rgb(239, 237, 237);
+        border-radius: 3px;
+        background-color: rgb(87, 92, 90);
+        font-size: 12px;
+        padding: 4px 8px;
+
+        &:focus {
+            border-color: rgb(0, 251, 255);
+            background-color: white;
+            color: black;
+        }
+
+        &:focus::placeholder {
+            color: rgba(0, 0, 0, 0.648);
+        }
+
+        &::placeholder {
+            color: rgba(255, 255, 255, 0.471);
+        }
+    }
+}
+
+.movieContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    .movies {
+        height: 400px;
+        display: flex;
+        gap: 5px;
+        flex-wrap: wrap;
+        width: 1000px;
+        border: 1px solid white;
+        padding: 5px;
+
+        li {
+            border: 1px solid white;
+            width: 150px;
+            height: 50%;
+        }
+    }
+}
