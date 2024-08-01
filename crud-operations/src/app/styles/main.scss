@@ -1,0 +1,36 @@
+#main {
+    width: 100%;
+    min-height: 100vh;
+    height: fit-content;
+    padding-bottom: 100px;
+    background-color: rgb(96, 96, 96);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    padding-top: 60px;
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .button1 {
+        width: 115px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 5px 0;
+        border: 1px solid rgb(0, 0, 0);
+        border-radius: 5px;
+        color: gray;
+        background-color: white;
+        font-size: 13px;
+
+        &:hover {
+            background-color: gray;
+            color: white;
+            border:1px solid rgba(0, 0, 0, 0);
+        }
+    }
+}
