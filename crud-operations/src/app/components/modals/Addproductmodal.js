@@ -1,12 +1,14 @@
 import React,{useState} from 'react'
 import { useProducts } from '@/app/contexts/ProductsContext';
 
-const Addproductmodal = ({isOpen,onClose}) => {
+const Addproductmodal = ({onClose}) => {
 
   const {addProduct} = useProducts()
+
   const [name, setName] = useState('');
   const [price, setPrice] = useState('');
   const [error, setError] = useState('')
+
   const handleBackgroundClick = (e) => {
     if (e.target.id === 'addproduct') {
       onClose();

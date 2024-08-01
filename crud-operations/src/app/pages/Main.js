@@ -7,7 +7,7 @@ const Main = () => {
 
   const [isModalOpen, setIsModalOpen] = useState(false)
   const {state,fetchProducts} = useProducts()
-  const { filteredProducts, loading, error } = state;
+  const { filteredProducts } = state;
 
   useEffect(() => {
     fetchProducts();

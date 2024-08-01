@@ -6,7 +6,6 @@ const ProductsContext = createContext()
 
 const initialState = {
     products: [],
-    loading: false,
     error: null,
     filteredProducts: [],
     filter: ''
@@ -16,12 +15,9 @@ function Reducer(state,action){
     switch(action.type){
         case 'FETCH_PRODUCTS':
             return {...state,products:action.payload,filteredProducts: action.payload};
-        
-        case 'SET_LOADING':
-            return{...state,loading:true}
 
         case 'SET_ERROR':
-            return{...state,error: action.payload,loading: false}
+            return{...state,error: action.payload}
 
         case 'SET_FILTER':
             const filteredProducts = state.products.filter(product =>
@@ -38,7 +34,6 @@ export function ProductsProvider({children}){
     const [state, dispatch] = useReducer(Reducer, initialState)
 
     const fetchProducts = useCallback(async () => {
-        dispatch({type: 'SET_LOADING'});
         try {
             const response = await myAxios.get('/products');
             dispatch({type: 'FETCH_PRODUCTS', payload: response.data});
@@ -62,7 +57,6 @@ export function ProductsProvider({children}){
     }, [fetchProducts]);
 
     const deleteProduct = useCallback(async (id) => {
-        dispatch({ type: 'SET_LOADING' });
         try {
             const { error } = await supabase.from('products').delete().eq('id', id);
             if (error) throw error;
