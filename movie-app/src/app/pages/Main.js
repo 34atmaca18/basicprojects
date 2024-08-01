@@ -3,9 +3,12 @@
 import React,{useEffect} from 'react'
 import {FilterBar,MovieList} from '../index.js'
 import '../styles/main.scss'
-import { fetchMovies } from '../api/Api.js'
+import { useMovies } from '../contexts/MoviesContext.js'
 
 const Main = () => {
+  const {state,fetchMovies} = useMovies()
+  const {filteredMovieList} = state
+  
   useEffect(() => {
     fetchMovies()
   }, [])
@@ -14,7 +17,7 @@ const Main = () => {
     <div className='mainContainer'>
       <h1 className='title'>Movie App!</h1>
       <FilterBar />
-      <MovieList />
+      <MovieList filteredMovieList={filteredMovieList} />
     </div>
   )
 }

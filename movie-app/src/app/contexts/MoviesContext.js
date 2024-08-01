@@ -16,8 +16,8 @@ const MoviesProvider = ({children}) => {
 
     const fetchMovies = useCallback(async () => {
         try {
-            const response = await myaxios.get('movies')
-            dispatch({type: 'FETCH_MOVIES',payload: response.data})
+            const response = await myAxios.get('/movie/popular');
+            dispatch({type: 'FETCH_MOVIES',payload: response.data.results})
         }
         catch (error) {
             dispatch({type: 'SET_ERROR',payload: error.message})

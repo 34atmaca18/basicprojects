@@ -5,7 +5,7 @@ const Reduce = (state,action) => {
 
         case 'FILTER_MOVIES':
             const filteredMovieList = state.movieList.filter((movie) => 
-            movie.name.toLowerCase().includes(action.payload.toLowerCase()))
+            movie.title.toLowerCase().includes(action.payload.toLowerCase()))
             return{...state,filteredMovieList,filter:action.payload};
 
         default:
