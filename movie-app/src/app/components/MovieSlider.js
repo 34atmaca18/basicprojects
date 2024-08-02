@@ -33,6 +33,9 @@ const MovieSlider = (props) => {
               className={styles.movieImagee}
               src={`${imageBaseUrl}${movie.backdrop_path}`} 
               alt={movie.title} />
+              <img 
+              className={styles.playButton}
+              src="/play-button.svg" alt="" />
             </div>
           ))}
       </Slider>
