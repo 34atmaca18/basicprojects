@@ -1,6 +1,6 @@
 import React from 'react'
 import { useMovies } from '../contexts/MoviesContext'
-import '../styles/components.scss'
+import styles from '../styles/components.module.scss'
 
 const FilterBar = () => {
   const{filter,setFilter} = useMovies()
@@ -11,8 +11,9 @@ const FilterBar = () => {
 
   return (
     <div
-    className='filterContainer'>
+    className={styles.filterContainer}>
       <input 
+      className={styles.filterInput}
       type="text" 
       value={filter}
       placeholder='filter movies..'

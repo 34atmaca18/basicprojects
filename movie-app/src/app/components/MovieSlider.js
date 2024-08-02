@@ -2,8 +2,12 @@ import React from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import styles from '../styles/components.module.scss'
 
-const SlickSlider = () => {
+const MovieSlider = (props) => {
+  const movieList = props.filteredMovieList.slice(1,5)
+  const imageBaseUrl = 'https://image.tmdb.org/t/p/w1280';
+
   const settings = {
     dots: true,
     infinite: true,
@@ -13,14 +17,27 @@ const SlickSlider = () => {
   };
 
   return (
-    <div className="slider-container">
+    <div className={styles.sliderContainer}>
       <Slider {...settings}>
-        <div className="slide bg-blue-500 text-white">Slide 1</div>
-        <div className="slide bg-green-500 text-white">Slide 2</div>
-        <div className="slide bg-red-500 text-white">Slide 3</div>
+      {movieList.map((movie,index) => (
+            <div
+            key={index}
+            className={styles.slides}
+            >
+              <div
+              className={styles.slidesLeft}>
+                <h1>{movie.title}</h1>
+                <p>{movie.overview}</p>
+              </div>
+              <img 
+              className={styles.movieImagee}
+              src={`${imageBaseUrl}${movie.backdrop_path}`} 
+              alt={movie.title} />
+            </div>
+          ))}
       </Slider>
     </div>
   );
 };
 
-export default SlickSlider;
+export default MovieSlider;

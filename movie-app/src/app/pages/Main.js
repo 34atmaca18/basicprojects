@@ -1,21 +1,23 @@
 'use client'
 
 import React,{useEffect} from 'react'
-import {FilterBar,MovieList} from '../index.js'
-import '../styles/main.scss'
+import {FilterBar,MovieList,Navbar,MovieSlider} from '../index.js'
+import styles from '../styles/main.module.scss'
 import { useMovies } from '../contexts/MoviesContext.js'
 
 const Main = () => {
   const {state,fetchMovies} = useMovies()
-  const {filteredMovieList} = state
+  const {filteredMovieList,movieList} = state
   
   useEffect(() => {
     fetchMovies()
   }, [])
   
   return (
-    <div className='mainContainer'>
-      <h1 className='title'>Movie App!</h1>
+    <div className={styles.mainContainer}>
+      <Navbar />
+      <MovieSlider filteredMovieList = {movieList} />
+      <h1 className={styles.mainTitle}>Neoflema TV</h1>
       <FilterBar />
       <MovieList filteredMovieList={filteredMovieList} />
     </div>
