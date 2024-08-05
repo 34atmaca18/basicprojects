@@ -1,7 +1,7 @@
 'use client'
 
 import React,{useEffect} from 'react'
-import {FilterBar,MovieList,Navbar,MovieSlider} from '../index.js'
+import {FilterBar,MovieList,Navbar,MovieSlider,Footer} from '../index.js'
 import styles from '../styles/main.module.scss'
 import { useMovies } from '../contexts/MoviesContext.js'
 
@@ -20,6 +20,7 @@ const Main = () => {
       <h1 className={styles.mainTitle}>Neoflema TV</h1>
       <FilterBar />
       <MovieList filteredMovieList={filteredMovieList} />
+      <Footer />
     </div>
   )
 }

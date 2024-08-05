@@ -32,6 +32,7 @@
     width: 100%;
     padding: 0 50px;
     margin-top: 30px;
+    padding-bottom: 100px;
 
     .movies {
         display: grid;
@@ -311,3 +312,106 @@
             }
         }
     }
+
+.footerContainer {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    padding:100px 50px;
+    justify-content: space-between;
+    position: relative;
+
+
+    .footerContainerLeft {
+        width: fit-content;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+
+        h1 {
+            font-weight: 900;
+            font-size: 23px;
+        }
+        ul {
+            li {
+                font-size: 14px;
+            }
+        }
+    }
+
+    .footerContainerRight {
+        width: fit-content;
+        background-color: black;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+
+        h1 {
+            font-size: 23px;
+            font-weight: 900;
+        }
+        ul {
+            display: flex;
+            flex-direction: column;
+            align-items: baseline;
+            gap: 3px;
+
+            li {
+                font-size: 14px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 6px;
+
+                img {
+                    width: 19px;
+                    height: 19px;
+                    position: relative;
+                    top: 1px;
+                }
+            }
+        }
+    }
+    .footerCopyRight {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: fit-content;
+        display: flex;
+        justify-content: space-between;
+        padding: 20px 50px;
+
+        .copyRightLeft {
+            display: flex;
+            gap: 4px;
+            font-size: 12px;
+            font-weight: 800;
+            align-items: center;
+
+            img {
+                width: 12px;
+                height: 12px;
+            }
+        }
+
+        .copyRightRight {
+            ul {
+                display: flex;
+                gap: 5px;
+                li {
+                    img {
+                        width: 22px;
+                        height: 22px;
+                        cursor: pointer;
+
+                        &:hover {
+                            filter: brightness(60%);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
