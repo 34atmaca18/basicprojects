@@ -21,6 +21,11 @@ const MovieList = (props) => {
             src={`${imageBaseUrl}${movie.backdrop_path}`}
             alt=""
           />
+          <div className={styles.movieLogos}>
+            <img className={styles.movieHdLogo} src="/hd-logo.svg" alt="" />
+            <img className={styles.movieTurkishLogo} src="/turkishflag.svg" alt="" />
+            <img className={styles.movieUsLogo} src="/usflag.svg" alt="" />
+          </div>
           <div className={styles.movieOverview}>
               <p>{movie.overview}</p>
             </div>
