@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 import styles from '../styles/components.module.scss'
 
 const MovieList = (props) => {
@@ -15,6 +16,7 @@ const MovieList = (props) => {
       <ul className={`${styles.movies} ${filteredMovieList.length === 0 ? styles.py0 : styles.py5}`}>
       {filteredMovieList.map((movie, index) => (
         <li key={index}>
+          <Link href={`/movies/${movie.id}`} key={movie.id} className='z-10 h-full w-full absolute left-0 top-0'></Link>
           <h1 className={styles.movieTitle}>{movie.title}</h1>
           <img
             className={styles.movieImage}

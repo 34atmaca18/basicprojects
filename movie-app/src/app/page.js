@@ -5,7 +5,9 @@ import Main from './pages/Main'
 
 const page = () => {
   return (
-    <div><Main /></div>
+    <div>
+      <Main />
+    </div>
   )
 }
 
