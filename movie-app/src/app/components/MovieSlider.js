@@ -32,10 +32,12 @@ const MovieSlider = (props) => {
               </div>
               <img 
               className={styles.movieImagee}
+              loading='lazy'
               src={`${imageBaseUrl}${movie.backdrop_path}`} 
               alt={movie.title} />
               <img 
               className={styles.playButton}
+              loading='lazy'
               src="/play-button.svg" alt="" />
             </div>
           ))}

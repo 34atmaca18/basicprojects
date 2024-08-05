@@ -32,13 +32,13 @@ const Footer = () => {
         <div className={styles.footerCopyRight}>
             <div className={styles.copyRightLeft}>
                 <span>Copyright</span>
-                <img src="/copy-right.svg" alt="copyright" />
+                <img src="/copy-right.svg" loading='lazy' alt="copyright" />
                 <span>2024. All rights are reserved.</span>
             </div>
             <div className={styles.copyRightRight}>
                 <ul>
                     {footerLinks[2].links.map((link,index) => (
-                        <li key={index}><img src={link.logo} alt="" /></li>
+                        <li key={index}><img loading='lazy' src={link.logo} alt="" /></li>
                     ))}
                 </ul>
             </div>

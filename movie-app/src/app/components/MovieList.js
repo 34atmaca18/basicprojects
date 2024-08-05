@@ -10,7 +10,7 @@ const MovieList = (props) => {
       {filteredMovieList.length === 0 
       ?
       <p className='w-full text-center text-[18px] h-[300px] font-bold flex items-center justify-center'>
-        Sorry.. We couldn't find your search. Please try to search for another movie..</p> 
+        Sorry.. We could not find your search. Please try to search for another movie..</p> 
       : 
       <ul className={`${styles.movies} ${filteredMovieList.length === 0 ? styles.py0 : styles.py5}`}>
       {filteredMovieList.map((movie, index) => (
@@ -20,11 +20,12 @@ const MovieList = (props) => {
             className={styles.movieImage}
             src={`${imageBaseUrl}${movie.backdrop_path}`}
             alt=""
+            loading='lazy'
           />
           <div className={styles.movieLogos}>
-            <img className={styles.movieHdLogo} src="/hd-logo.svg" alt="" />
-            <img className={styles.movieTurkishLogo} src="/turkishflag.svg" alt="" />
-            <img className={styles.movieUsLogo} src="/usflag.svg" alt="" />
+            <img className={styles.movieHdLogo} loading='lazy' src="/hd-logo.svg" alt="" />
+            <img className={styles.movieTurkishLogo} loading='lazy' src="/turkishflag.svg" alt="" />
+            <img className={styles.movieUsLogo} loading='lazy' src="/usflag.svg" alt="" />
           </div>
           <div className={styles.movieOverview}>
               <p>{movie.overview}</p>
