@@ -14,7 +14,7 @@ const Main = () => {
   }, [])
   
   return (
-    <div className={styles.mainContainer}>
+    <div className={`${styles.mainContainer}`}>
       <Navbar />
       <MovieSlider filteredMovieList = {movieList} />
       <h1 className={styles.mainTitle}>Neoflema TV</h1>
