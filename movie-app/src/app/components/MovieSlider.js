@@ -3,7 +3,7 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import styles from '../styles/components.module.scss'
-import '../styles/globals.css'
+import '../styles/globals.scss'
 
 const MovieSlider = (props) => {
   const movieList = props.filteredMovieList.slice(1,5)
