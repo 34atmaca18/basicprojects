@@ -1,1 +1,1 @@
-<p>Nextjs projectss...</p>
+<p>Nextjs projects...</p>
