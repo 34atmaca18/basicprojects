@@ -1,3 +1,5 @@
+'use client'
+
 import React,{createContext,useContext,useReducer,useCallback} from 'react'
 import Reduce from '../reducers/Reduce'
 import { myAxios } from '../api/Api'

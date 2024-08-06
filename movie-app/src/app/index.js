@@ -3,7 +3,7 @@ import MovieList from "./components/MovieList";
 import Navbar from "./components/Navbar";
 import MovieSlider from "./components/MovieSlider"
 import Footer from "./components/Footer";
-
+import StarRating from "./components/StarRating";
 
 const footerLinks = [
     {
@@ -38,5 +38,6 @@ export {
     Navbar,
     MovieSlider,
     Footer,
-    footerLinks
+    footerLinks,
+    StarRating
 }
