@@ -2,7 +2,7 @@
     width: 100%;
     height: 100vh;
     background-color: black;
-    padding: 100px 50px;
+    padding: 100px 20px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -147,5 +147,11 @@
                 }
             }
         }
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .loginContainer .formContainer {
+        padding: 10px 8px 80px 8px;
     }
 }

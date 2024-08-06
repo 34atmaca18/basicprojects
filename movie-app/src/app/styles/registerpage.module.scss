@@ -1,11 +1,11 @@
 .registerContainer {
     width: 100%;
-    height: 100vh;
+    height: fit-content;
     background-color: black;
     padding: 100px 50px;
     display: flex;
     justify-content: center;
-    align-items: center;
+    padding: 200px 20px;
     color: white;
 
     .formContainer {
@@ -159,5 +159,11 @@
                 }
             }
         }
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .registerContainer .formContainer {
+        padding: 10px 8px 80px 8px;
     }
 }
