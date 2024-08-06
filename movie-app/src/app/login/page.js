@@ -1,9 +1,10 @@
 import React from 'react'
-import {Login,Register} from '../index.js'
+import {Login,Navbar} from '../index.js'
 
 const LoginScreen = () => {
   return (
     <div>
+        <Navbar />
         <Login />
     </div>
   )

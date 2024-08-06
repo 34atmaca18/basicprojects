@@ -1,4 +1,4 @@
-.loginContainer {
+.registerContainer {
     width: 100%;
     height: 100vh;
     background-color: black;
@@ -44,7 +44,7 @@
                 }
             }
 
-            .email,.password {
+            .email,.password,.name,.country {
                 margin-top: 10px;
                 display: flex;
                 flex-direction: column;
@@ -72,6 +72,26 @@
                     font-size: 14.5px;
                 }
             }
+
+            .country {
+                select {
+                    background-color: black;
+                    color: white;
+                    border: 2px solid white;
+                    font-size: 12px;
+                    padding: 10px 10px;
+                    border-radius: 10px;
+                    height: 50px;
+
+                    &:focus {
+                        border-color:rgb(0, 255, 213) ;
+                    }
+
+                    .countryOptions {
+                        padding: 5px;
+                    }
+                }
+            }
             
             .buttonContainer {
                 width: 100%;
@@ -79,7 +99,7 @@
                 justify-content: center;
                 margin-top: 30px;
 
-                .loginButton {
+                .registerButton {
                     font-size: 14px;
                     padding: 3px 15px;
                     background-color: black;
@@ -95,25 +115,16 @@
             }
         }
         .containerBottom {
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
             position: absolute;
             bottom: 10px;
-            left: 0;
-            padding: 0 20px;
-
             .bottomLinks {
                 width: fit-content;
                 border-bottom: 1px solid white;
                 font-size: 12px;
-
                 &:hover {
                     font-size: 11px;
                 }
             }
         }
-
     }
 }
-
