@@ -3,19 +3,36 @@
 import React from 'react'
 import { Formik, Field, Form, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
+import { useRouter } from 'next/navigation'; 
 import styles from '../styles/loginpage.module.scss'
 import Link from 'next/link'
 
 const validationSchema = Yup.object({
     email: Yup.string()
-        .email('Invalid email address')
-        .required('Email is required'),
+    .email('Invalid email address')
+    .matches(/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,}$/, 'Email must end with .com')
+    .required('Email is required'),
     password: Yup.string()
         .min(8, 'Password must be at least 8 characters')
         .required('Password is required')
 });
 
 const Login = () => {
+    const router = useRouter(); 
+
+    const handleSubmit = (values, { resetForm }) => {
+        const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
+        const user = storedUsers.find(user => user.email === values.email && user.password === values.password);
+
+        if (user) {
+            router.push('/');
+        } else {
+            alert('Invalid email or password');
+        }
+
+        resetForm();
+    };
+
     return (
         <div className={styles.loginContainer}>
             <div className={styles.formContainer}>
@@ -23,17 +40,14 @@ const Login = () => {
                 <Formik
                     initialValues={{ email: '', password: '' }}
                     validationSchema={validationSchema}
-                    onSubmit={(values, { resetForm }) => {
-                        console.log(values);
-                        resetForm();
-                    }}
+                    onSubmit={handleSubmit}
                 >
                     {({ errors, touched }) => (
                         <Form className={styles.form}>
                             <div className={`${styles.email}`}>
-                                <label htmlFor="email" className={`${errors.email && touched.email ? styles.error : ''}`}>Email</label>
+                                <label htmlFor="email" className={`${errors.email && touched.email ? styles.error : (touched.email && !errors.email ? styles.success : '')}`}>Email</label>
                                 <Field
-                                    className={`${styles.input} ${errors.email && touched.email ? styles.errorInput : ''}`}
+                                    className={`${styles.input} ${errors.email && touched.email ? styles.errorInput : (touched.email && !errors.email ? styles.successInput : '')}`}
                                     type="email"
                                     id="email"
                                     name="email"
@@ -42,9 +56,9 @@ const Login = () => {
                                 <ErrorMessage name="email" component="div" className={styles.error} />
                             </div>
                             <div className={`${styles.password}`}>
-                                <label htmlFor="password" className={`${errors.password && touched.password ? styles.error : ''}`}>Password</label>
+                                <label htmlFor="password" className={`${errors.password && touched.password ? styles.error : (touched.password && !errors.password ? styles.success : '')}`}>Password</label>
                                 <Field
-                                    className={`${styles.input} ${errors.password && touched.password ? styles.errorInput : ''}`}
+                                    className={`${styles.input} ${errors.password && touched.password ? styles.errorInput : (touched.password && !errors.password ? styles.successInput : '')}`}
                                     type="password"
                                     id="password"
                                     name="password"
