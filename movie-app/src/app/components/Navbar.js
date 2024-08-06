@@ -10,10 +10,10 @@ const Navbar = () => {
     <header className={`${styles.navContainer} ${sideBar ? styles.navContainerResponsive : ''}`}>
       <nav className={styles.nav}>
         <div className={styles.navLeft}>
-          <div className={styles.navLeftLogoPart}>
+          <Link className={styles.navLeftLogoPart} href="/">
             <img className={styles.logo} loading='lazy' src="/logo.jpg" alt="cinema" />
             <h1><b>neoflema</b><span className='font-light'>TV</span></h1>
-          </div>
+          </Link>
           <div className={styles.categories}>
             <p>Categories</p>
             <img className={styles.arrow} loading='lazy' src="/arrow-down.svg" alt="" />

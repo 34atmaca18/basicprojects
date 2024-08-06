@@ -35,8 +35,8 @@ const MovieDetail = async ({ params }) => {
       </div>
     );
   } catch (error) {
-    console.error("Failed to fetch movie:", error);
-    return <div>Movie not found</div>;
+      console.error("Failed to fetch movie:", error);
+      return <div>Movie not found</div>;
   }
 };
 
