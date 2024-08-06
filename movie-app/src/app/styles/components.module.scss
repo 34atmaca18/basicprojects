@@ -193,13 +193,13 @@
                 gap: 10px;
 
                 .logo {
-                    width: 50px;
-                    height: 50px;
+                    width: 40px;
+                    height: 40px;
                     border-radius: 5px;
                     filter: brightness(50%);
                 }
                 h1 {
-                    font-size: 24px;
+                    font-size: 20px;
                     font-weight: 500;
                 }
             }
@@ -283,19 +283,6 @@
             display: flex;
             position: relative;
 
-            .playButton {
-                width: 100px;
-                height: 100px;
-                position: absolute;
-                top: 50%;
-                left: calc(50% - 50px);
-                cursor: pointer;
-                
-                &:hover {
-                    filter: brightness(50%);
-                }
-            }
-
             .slidesLeft {
                 width: 100%;
                 height: 100%;
@@ -309,10 +296,11 @@
                 h1 {
                     font-size: 24px;
                     font-weight: 700;
+                    
                 }
                 p{
                     font-size: 14px;
-                    width: 35%;
+                    width: 45%;
                 }
             }
             .movieImagee {
@@ -322,6 +310,19 @@
                 right: 0;
                 top: 0;
                 z-index: -1;
+            }
+            .playButton {
+                width: 100px;
+                height: 100px;
+                position: absolute;
+                top: 50%;
+                left: calc(50% - 50px);
+                cursor: pointer;
+                z-index: 1;
+                
+                &:hover {
+                    filter: brightness(50%);
+                }
             }
         }
     }
@@ -410,27 +411,24 @@
                 height: 400px;
     
                 .playButton {
-                    width: 60px;
-                    height: 60px;
-                    left: calc(50% - 30px);
+                    display: none;
                 }
     
                 .slidesLeft {
                     padding-left: 20px;
-    
+                    background: none;
+                    padding-right: 20px;
                     h1 {
-                        font-size: 20px;
-                        font-weight: 700;
-                        width: 100%;
-                        margin-top: 70px;
+                        font-size: 19px;
                     }
                     p{
-                        font-size: 10px;
-                        width: 50%;
+                        font-size: 11px;
+                        width: 100%;
                     }
                 }
                 .movieImagee {
                     width: 100%;
+                    filter: brightness(10%);
                 }
             }
         }
@@ -540,18 +538,24 @@
 }
 }
 
-@media screen and (max-width: 500px) {
-    .navContainer .menuOpenClose {
+@media screen and (max-width: 550px) {
+    .navContainer{ 
+        .navLeftLogoPart {
+            h1 {
+                font-size: 17px !important;
+            }
+        }
+        .menuOpenClose {
         width: 21px !important;
         height: 21px !important;
-    }
+    }}
 
     .sliderContainer{ 
         h1{
             font-size: 17px !important;
     }   
         p {
-            font-size: 9.5px !important;
+            font-size: 10.5px !important;
         }
 }
     

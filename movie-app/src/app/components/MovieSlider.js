@@ -1,13 +1,14 @@
 'use client'
 import React from 'react';
 import Slider from 'react-slick';
+import Link from 'next/link';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import styles from '../styles/components.module.scss'
 import '../styles/globals.scss'
 
 const MovieSlider = (props) => {
-  const movieList = props.filteredMovieList.slice(1,5)
+  const movieList = props.filteredMovieList.slice(6,10)
   const imageBaseUrl = 'https://image.tmdb.org/t/p/w1280';
 
   const settings = {
@@ -26,6 +27,7 @@ const MovieSlider = (props) => {
             key={index}
             className={styles.slides}
             >
+              <Link href={`/movies/${movie.id}`} key={movie.id} className='z-10 h-full w-[55%] max-md:w-full absolute right-0 top-0'></Link>
               <div
               className={styles.slidesLeft}>
                 <h1>{movie.title}</h1>
