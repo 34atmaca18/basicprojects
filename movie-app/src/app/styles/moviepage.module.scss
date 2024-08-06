@@ -79,7 +79,7 @@
         position: absolute;
         right: 0;
         top: 0;
-        filter: brightness(40%);
+        filter: brightness(80%);
     }
 }
   
@@ -87,7 +87,7 @@
     .movieContainer {
         padding-top: 125px;
         .blackEffect { 
-            background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
+            background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
         }
     
         .leftPart {  
@@ -97,7 +97,7 @@
             }
             p {
                 font-size: 15px;
-                width: 90%;
+                width: 80%;
             }
     
             .genres {
@@ -114,7 +114,7 @@
             }
         }
         img {
-            width: 45%;
+            width: 50%;
         }
     }
 }

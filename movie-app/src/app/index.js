@@ -4,6 +4,8 @@ import Navbar from "./components/Navbar";
 import MovieSlider from "./components/MovieSlider"
 import Footer from "./components/Footer";
 import StarRating from "./components/StarRating";
+import Register from "./components/Register";
+import Login from "./components/Login";
 
 const footerLinks = [
     {
@@ -39,5 +41,7 @@ export {
     MovieSlider,
     Footer,
     footerLinks,
-    StarRating
+    StarRating,
+    Register,
+    Login
 }

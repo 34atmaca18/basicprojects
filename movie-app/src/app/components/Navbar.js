@@ -20,8 +20,8 @@ const Navbar = () => {
           </div>
         </div>
         <div className={styles.navRight}>
-          <Link className={styles.navRightLink} href="/">Register</Link>
-          <Link className={styles.navRightLink} href="/">Login</Link>
+          <Link className={styles.navRightLink} href="/loginscreen">Register</Link>
+          <Link className={styles.navRightLink} href="/loginscreen">Login</Link>
         </div>
       </nav>
       <img onClick={() => setSideBar(!sideBar)} className={styles.menuOpenClose} src={sideBar ? '/close.svg' : '/menu.svg'} loading='lazy' alt="" />
