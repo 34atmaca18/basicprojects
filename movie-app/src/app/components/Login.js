@@ -21,22 +21,22 @@ const validationSchema = Yup.object({
 
 const Login = () => {
     const {login} = useAuth()
-    const router = useRouter(); 
 
     const handleSubmit = (values, { resetForm }) => {
         const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
         const user = storedUsers.find(user => user.email === values.email && user.password === values.password);
-
+        
         if (user) {
-            login();
-            router.push('/');
+            login(user); 
+            localStorage.setItem('currentUser', JSON.stringify(user));
+
         } else {
             alert('Invalid email or password');
         }
 
         resetForm();
     };
-
+    
     return (
         <div className={styles.loginContainer}>
             <div className={styles.formContainer}>

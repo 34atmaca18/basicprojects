@@ -231,6 +231,9 @@
     }
 
     .navRight {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         .navRightLinks {
             display: flex;
             justify-content: center;

@@ -6,6 +6,8 @@ import Footer from "./components/Footer";
 import StarRating from "./components/StarRating";
 import Register from "./components/Register";
 import Login from "./components/Login";
+import Profile from "./components/Profile";
+import LikedMovies from "./components/LikedMovies";
 
 const footerLinks = [
     {
@@ -97,5 +99,6 @@ export {
     Register,
     Login,
     countryList,
-
+    LikedMovies,
+    Profile
 }
