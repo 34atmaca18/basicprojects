@@ -210,7 +210,6 @@
                 align-items: center;
                 cursor: pointer;
                 position: relative;
-                top: 1px;
 
                 &:hover {
                     color: rgba(255, 255, 255, 0.44);
@@ -232,10 +231,16 @@
     }
 
     .navRight {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 10px;
+        .navRightLinks {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .navRightProfile {
+            font-size: 17px;
+        }
 
         .navRightLink {
             width: 70px;

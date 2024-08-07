@@ -3,9 +3,11 @@
 import React from 'react'
 import { Formik, Field, Form, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
+import { useAuth } from '../contexts/AuthContext'
 import { useRouter } from 'next/navigation'; 
 import styles from '../styles/loginpage.module.scss'
 import Link from 'next/link'
+
 
 const validationSchema = Yup.object({
     email: Yup.string()
@@ -18,6 +20,7 @@ const validationSchema = Yup.object({
 });
 
 const Login = () => {
+    const {login} = useAuth()
     const router = useRouter(); 
 
     const handleSubmit = (values, { resetForm }) => {
@@ -25,6 +28,7 @@ const Login = () => {
         const user = storedUsers.find(user => user.email === values.email && user.password === values.password);
 
         if (user) {
+            login();
             router.push('/');
         } else {
             alert('Invalid email or password');
