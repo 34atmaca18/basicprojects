@@ -35,8 +35,6 @@ const footerLinks = [
     }
 ]
 
-// countryList.js
-
 const countryList = [
     "Argentina",
     "Australia",
@@ -87,6 +85,7 @@ const countryList = [
     "United States",
     "Vietnam"
   ];
+  
 export {
     FilterBar,
     MovieList,
@@ -97,5 +96,6 @@ export {
     StarRating,
     Register,
     Login,
-    countryList
+    countryList,
+
 }
