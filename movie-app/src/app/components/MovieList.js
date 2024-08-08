@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import Link from 'next/link'
-import styles from '../styles/components.module.scss'
+import styles from '../styles/movielist.module.scss'
 import { useAuth } from '../contexts/AuthContext'
 
 const MovieList = (props) => {

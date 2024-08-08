@@ -1,6 +1,6 @@
 import React from 'react'
 import { useMovies } from '../contexts/MoviesContext'
-import styles from '../styles/components.module.scss'
+import styles from '../styles/filter.module.scss'
 
 const FilterBar = () => {
   const{filter,setFilter} = useMovies()

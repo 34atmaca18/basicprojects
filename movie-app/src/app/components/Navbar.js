@@ -1,7 +1,7 @@
 'use client'
 import Link from 'next/link';
 import React,{useState} from 'react';
-import styles from '../styles/components.module.scss'
+import styles from '../styles/navbar.module.scss'
 import { useAuth } from '../contexts/AuthContext';
 
 const Navbar = () => {

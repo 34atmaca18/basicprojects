@@ -1,6 +1,6 @@
 import React from 'react'
 import { footerLinks } from '../index.js'
-import styles from '../styles/components.module.scss'
+import styles from '../styles/footer.module.scss'
 
 const Footer = () => {
   return (
