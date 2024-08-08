@@ -4,6 +4,7 @@ import React,{useEffect} from 'react'
 import {FilterBar,MovieList,Navbar,MovieSlider,Footer} from '../index.js'
 import styles from '../styles/main.module.scss'
 import { useMovies } from '../contexts/MoviesContext.js'
+import '../style.css'
 
 const Main = () => {
   const {state,fetchMovies} = useMovies()
