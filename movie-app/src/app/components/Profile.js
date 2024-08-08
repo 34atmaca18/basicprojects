@@ -1,13 +1,11 @@
 'use client'
 
-import React,{useEffect,useState} from 'react'
+import React from 'react'
 import { useAuth } from '../contexts/AuthContext'
 import styles from '../styles/profile.module.scss'
-import { useRouter } from 'next/navigation'; 
 
 const Profile = () => {
-    const { userLoggedIn, userData, logout } = useAuth();
-    const router = useRouter();
+    const { userData, logout } = useAuth();
 
     const handleLogout = () => {
         logout();

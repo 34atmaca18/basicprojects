@@ -2,6 +2,7 @@
     width: 100%;
     display: flex;
     justify-content: center;
+
     .filterInput {
         width: 300px;
         border: 1px solid rgb(239, 237, 237);
@@ -62,6 +63,24 @@
             z-index: 1;
             border-radius: 15px;
             overflow: hidden;
+
+            .likeMovieButton,.unlikeMovieButton {
+                background-color: black;
+                font-size: 9px;
+                padding: 4px 8px;
+                font-weight: 600;
+                position: absolute;
+                z-index: 11;
+                bottom: 10px;
+                border-radius: 5px;
+                border: 1px solid white;
+
+                &:hover {
+                    background-color: white;
+                    color: black;
+                    font-size: 8px;
+                }
+            }
             
 
             &:hover {
@@ -102,31 +121,28 @@
                 left: 0;
                 top: 0;
 
-                .movieHdLogo {
-                    width: 35px;
-                    height: 35px;
+                .movieHdLogo,.movieTurkishLogo,.movieUsLogo {
+                    width: 20px;
+                    height: 20px;
                     position: absolute;
                     bottom: 10px;
                     right: 10px;
                     filter: brightness(70%);
                 }
+
+                .movieHdLogo {
+                    border: 1px solid white;
+                    border-radius: 3px;
+                }
                 
                 .movieTurkishLogo {
-                    width: 35px;
-                    height: 35px;
-                    position: absolute;
                     bottom: 10px;
-                    left: 50px;
-                    filter: brightness(70%);
+                    left: 33px;
                 }
     
                 .movieUsLogo {
-                    width: 35px;
-                    height: 35px;
-                    position: absolute;
                     bottom: 10px;
                     left: 10px;
-                    filter: brightness(70%);
                 }
     
             }
@@ -147,7 +163,6 @@
                 padding: 6px;
                 transition: all ease-in-out 0.5s;
             }
-
         }
     }
 }
@@ -499,34 +514,6 @@
                 position: absolute;
                 left: 0;
                 top: 0;
-
-                .movieHdLogo {
-                    width: 35px;
-                    height: 35px;
-                    position: absolute;
-                    bottom: 10px;
-                    right: 10px;
-                    filter: brightness(70%);
-                }
-                
-                .movieTurkishLogo {
-                    width: 35px;
-                    height: 35px;
-                    position: absolute;
-                    bottom: 10px;
-                    left: 50px;
-                    filter: brightness(70%);
-                }
-    
-                .movieUsLogo {
-                    width: 35px;
-                    height: 35px;
-                    position: absolute;
-                    bottom: 10px;
-                    left: 10px;
-                    filter: brightness(70%);
-                }
-    
             }
 
             .movieOverview {

@@ -25,6 +25,7 @@ const MoviesProvider = ({children}) => {
             dispatch({type: 'SET_ERROR',payload: error.message})
         }
       },[])
+    
 
     const setFilter = useCallback(async (filter) => {
         dispatch({type:'FILTER_MOVIES',payload: filter})

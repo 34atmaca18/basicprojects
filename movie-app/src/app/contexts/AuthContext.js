@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, createContext, useContext, useEffect } from 'react';
+import React, { useState, createContext, useContext, useEffect,useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 
 const AuthContext = createContext();
@@ -13,7 +13,6 @@ const AuthProvider = ({ children }) => {
     useEffect(() => {
         const storedUserLoggedIn = localStorage.getItem('userLoggedIn') === 'true';
         setUserLoggedIn(storedUserLoggedIn);
-        console.log(storedUserLoggedIn)
 
         if (storedUserLoggedIn) {
             const user = JSON.parse(localStorage.getItem('currentUser')) || null;
@@ -22,12 +21,19 @@ const AuthProvider = ({ children }) => {
         else {
             setUserData(null)
         }
-    }, []);
 
-    useEffect(() => {
-        console.log("userData inside useEffect:", userData);
-        console.log("inside useeffect",userLoggedIn)
-    }, [userData]);
+        const users = JSON.parse(localStorage.getItem('users')) || [];
+        const updatedUsers = users.map((user) => {
+            if (!user.LikedMovies) {
+                user.LikedMovies = [];
+            }
+            if (!user.isLiked) {
+                user.isLiked = {};
+            }
+            return user;
+        });
+        localStorage.setItem('users', JSON.stringify(updatedUsers));
+    }, []);
 
     const login = (user) => {
         setUserLoggedIn(true);
@@ -39,14 +45,39 @@ const AuthProvider = ({ children }) => {
 
     const logout = () => {
         setUserLoggedIn(false);
-        setUserData(null);
         localStorage.setItem('userLoggedIn', 'false');
         localStorage.removeItem('currentUser');
-        router.push('/')
+        router.push('/');
+        setUserData(null);
     };
 
+    const saveUserDataToLocalStorage = (updatedUser) => {
+        setUserData(updatedUser);
+        localStorage.setItem('currentUser', JSON.stringify(updatedUser));
+
+        const users = JSON.parse(localStorage.getItem('users')) || [];
+        const updatedUsers = users.map((user) =>
+            user.email === updatedUser.email ? updatedUser : user
+        );
+        localStorage.setItem('users', JSON.stringify(updatedUsers));
+    };
+
+    const addToLikedMovies = useCallback((movie) => {
+        const updatedLikedMovies = [...(userData.LikedMovies || []), movie];
+        const updatedIsLiked = { ...(userData.isLiked || {}), [movie.id]: true };
+        const updatedUser = { ...userData, LikedMovies: updatedLikedMovies, isLiked: updatedIsLiked };
+        saveUserDataToLocalStorage(updatedUser);
+    }, [userData]);
+
+    const removeFromLikedMovies = useCallback((movie) => {
+        const updatedLikedMovies = userData.LikedMovies.filter((m) => m.id !== movie.id);
+        const updatedIsLiked = { ...(userData.isLiked || {}), [movie.id]: false };
+        const updatedUser = { ...userData, LikedMovies: updatedLikedMovies, isLiked: updatedIsLiked };
+        saveUserDataToLocalStorage(updatedUser);
+    }, [userData]);
+
     return (
-        <AuthContext.Provider value={{ userLoggedIn, userData, login, logout }}>
+        <AuthContext.Provider value={{ userLoggedIn, userData, login, logout,addToLikedMovies,removeFromLikedMovies }}>
             {children}
         </AuthContext.Provider>
     );

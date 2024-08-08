@@ -1,9 +1,24 @@
-import React from 'react'
+'use client'
+
+import React,{useEffect} from 'react'
 import {LikedMovies,Profile,Navbar} from '../index' 
+import { useRouter } from 'next/navigation.js'
+import { useAuth } from '../contexts/AuthContext.js'
+import styles from '../styles/profile.module.scss'
 
 const ProfileScreen = () => {
+  const router = useRouter()
+  const {userLoggedIn} = useAuth()
+
+  useEffect(() => {
+    if (!userLoggedIn) {
+      router.push('/login')
+    }
+  }, [userLoggedIn])
+  
+   
   return (
-    <div className='w-full h-[100vh] overflow-hidden'>
+    <div className={styles.profileScreen}>
         <Navbar />
         <Profile />
         <LikedMovies />

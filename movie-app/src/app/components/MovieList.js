@@ -1,11 +1,21 @@
-import React from 'react'
+import React,{useState} from 'react'
 import Link from 'next/link'
 import styles from '../styles/components.module.scss'
+import { useAuth } from '../contexts/AuthContext'
 
 const MovieList = (props) => {
   const filteredMovieList = props.filteredMovieList
   const imageBaseUrl = 'https://image.tmdb.org/t/p/w1280';
-    
+  const {userLoggedIn,addToLikedMovies,removeFromLikedMovies,userData} = useAuth()
+
+  const handleLikeButton = (movie) => {
+    addToLikedMovies(movie);
+}
+
+  const handleUnLikeButton = (movie) => {
+      removeFromLikedMovies(movie);
+  }
+  
   return (
     <div className={styles.movieContainer}>
       {filteredMovieList.length === 0 
@@ -31,7 +41,24 @@ const MovieList = (props) => {
           </div>
           <div className={styles.movieOverview}>
               <p>{movie.overview}</p>
-            </div>
+          </div>
+          {userLoggedIn && userData?.isLiked && (
+            userData.isLiked[movie.id]
+            ? 
+            <button
+            className={styles.unlikeMovieButton} 
+            onClick={() => handleUnLikeButton(movie)}
+            >
+              Remove Like
+            </button>
+            :
+              <button
+            className={styles.likeMovieButton} 
+            onClick={() => handleLikeButton(movie)}
+            >
+              Like
+            </button>
+          )}
         </li>
       ))}
     </ul>}

@@ -9,7 +9,7 @@ const Reduce = (state,action) => {
             return{...state,filteredMovieList,filter:action.payload};
 
         default:
-            return state
+            return state;
     }
 }
 

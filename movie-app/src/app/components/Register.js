@@ -3,7 +3,7 @@
 import React from 'react';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { countryList } from '../index.js';
+import { countryList, LikedMovies } from '../index.js';
 import styles from '../styles/registerpage.module.scss';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -34,7 +34,11 @@ const Register = () => {
       alert('Email address already registered.');
       return; 
     }
-    storedUsers.push(values);
+
+    const newValues = {
+      ...values,LikedMovies: [],isLiked: {}
+    }
+    storedUsers.push(newValues);
     localStorage.setItem('users', JSON.stringify(storedUsers));
     alert('Registration is Successful!');
     resetForm();

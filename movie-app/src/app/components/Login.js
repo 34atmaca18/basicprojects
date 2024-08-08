@@ -4,7 +4,6 @@ import React from 'react'
 import { Formik, Field, Form, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
 import { useAuth } from '../contexts/AuthContext'
-import { useRouter } from 'next/navigation'; 
 import styles from '../styles/loginpage.module.scss'
 import Link from 'next/link'
 
