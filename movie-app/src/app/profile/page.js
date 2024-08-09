@@ -8,10 +8,11 @@ import styles from '../styles/profile.module.scss'
 
 const ProfileScreen = () => {
   const router = useRouter()
-  const {userLoggedIn} = useAuth()
+  const {userLoggedIn,setUserLoggedInfalse,userData} = useAuth()
 
   useEffect(() => {
-    if (!userLoggedIn) {
+    if (!userLoggedIn || !userData) {
+      setUserLoggedInfalse();
       router.push('/login')
     }
   }, [userLoggedIn])

@@ -52,28 +52,61 @@
             }
 
             .categories {
+                cursor: pointer;
                 display: flex;
+                flex-direction: column;
                 justify-content: center;
                 align-items: center;
-                cursor: pointer;
-                position: relative;
+
+                .categoryTitle {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    position: relative;
+                    z-index: 1;
+
+                    p {
+                        font-size: 15px;
+                    }
+                    .arrow{
+                        width: 10px;
+                        height: 10px;
+                        position: relative;
+                        left: 2px;
+                    }
+                }
+
+                .categoryNames {
+                    display: none;
+                    flex-direction: column;
+                    gap: 10px;
+                    position: absolute;
+                    width: 200px;
+                    height: fit-content;
+                    padding: 100px 0;
+                    background-color: black;
+                    justify-content: center;
+                    align-items: center;
+                    top: 30px;
+                    left: 250px;
+                    border: 1px solid white;
+
+                    li:hover {
+                        color: rgba(255, 255, 255, 0.44);
+                    }
+                }
 
                 &:hover {
-                    color: rgba(255, 255, 255, 0.44);
                     transition: all ease-in-out 0.1s;
-                }
-                p {
-                    font-size: 15px;
-                }
-                .arrow{
-                    width: 10px;
-                    height: 10px;
-                    position: relative;
-                    left: 2px;
+                    
+                    .categoryTitle {
+                        color: rgba(255, 255, 255, 0.44);
+                    }
+                    .categoryNames {
+                        display: flex;
+                    }
                 }
             }
-
-    
         }
     }
 
