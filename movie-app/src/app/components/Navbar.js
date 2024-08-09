@@ -22,10 +22,7 @@ const Navbar = () => {
               <img className={styles.arrow} loading='lazy' src="/arrow-down.svg" alt="" />
             </div>
             <ul className={styles.categoryNames}>
-              <li>adam</li>
-              <li>adam</li>
-              <li>adam</li>
-              <li>adam</li>
+              <li>Coming Soon..</li>
             </ul>
           </div>
         </div>
@@ -35,12 +32,13 @@ const Navbar = () => {
             ?
             <div className={styles.navRightLinks}>
               <Link className={`${styles.navRightLink} ${styles.navRightProfile}`} href="/profile">Profile</Link>
-              <Link className={`${styles.navRightLink} ${styles.navRightProfile}`} href="/categories">Categories</Link>
+              <Link className={`${styles.navRightLink} ${styles.navRightCategories}`} href="/categories">Categories</Link>
             </div>
             :
             <div className={styles.navRightLinks}>
               <Link className={styles.navRightLink} href="/register">Register</Link>
               <Link className={styles.navRightLink} href="/login">Login</Link>
+              <Link className={`${styles.navRightLink} ${styles.navRightCategories}`} href="/categories">Categories</Link>
             </div>
           }
         </div>

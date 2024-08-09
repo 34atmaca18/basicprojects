@@ -8,6 +8,7 @@ const MovieList = (props) => {
   const imageBaseUrl = 'https://image.tmdb.org/t/p/w1280';
   const {userLoggedIn,addToLikedMovies,removeFromLikedMovies,userData} = useAuth()
 
+  console.log(filteredMovieList)
   const handleLikeButton = (movie) => {
     addToLikedMovies(movie);
 }

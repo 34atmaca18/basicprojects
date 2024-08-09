@@ -16,7 +16,7 @@ const MovieDetail = ({ params }) => {
       try {
         const response = await fetch(`${base_url}/movie/${id}?api_key=${my_api_key}`);
         if (!response.ok) {
-          throw new Error('Network response was not ok');
+          throw new Error('error');
         }
         const movieData = await response.json();
         setMovie(movieData);
@@ -38,6 +38,7 @@ const MovieDetail = ({ params }) => {
     return <div>Loading...</div>;
   }
 
+  console.log(movie.genres)
   return (
     <div>
       <Navbar />
